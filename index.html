@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Goblin Market Scramble</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="starfield" id="starfield"></div>
+    
+    <div class="game-container">
+        <div class="menu-screen" id="menuScreen">
+            <div class="title-container">
+                <h1 class="game-title">Goblin Market Scramble</h1>
+                <p class="game-subtitle">Mystical Gem Collection Adventure</p>
+            </div>
+            
+            <div class="menu-options">
+                <button class="btn btn--primary menu-btn" id="startBtn">Begin Quest</button>
+                <button class="btn btn--secondary menu-btn" id="leaderboardBtn">Hall of Fame</button>
+                <button class="btn btn--outline menu-btn" id="instructionsBtn">Instructions</button>
+            </div>
+        </div>
+
+        <div class="game-screen hidden" id="gameScreen">
+            <div class="game-header">
+                <div class="score-display">
+                    <span class="score-label">Gems Collected</span>
+                    <span class="score-value" id="scoreValue">0</span>
+                </div>
+                <div class="combo-display" id="comboDisplay">
+                    <span class="combo-label">Mystical Combo</span>
+                    <span class="combo-value" id="comboValue">x1</span>
+                </div>
+                <div class="timer-display">
+                    <span class="timer-label">Time Remaining</span>
+                    <span class="timer-value" id="timerValue">60</span>
+                </div>
+            </div>
+            
+            <canvas id="gameCanvas" width="800" height="500"></canvas>
+            
+            <div class="mobile-controls" id="mobileControls">
+                <button class="mobile-btn mobile-btn-left" id="leftBtn">
+                    <span class="btn-icon">←</span>
+                </button>
+                <button class="mobile-btn mobile-btn-right" id="rightBtn">
+                    <span class="btn-icon">→</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="leaderboard-screen hidden" id="leaderboardScreen">
+            <h2 class="leaderboard-title">Hall of Fame</h2>
+            <div class="leaderboard-container">
+                <div class="leaderboard-header">
+                    <span>Rank</span>
+                    <span>Score</span>
+                    <span>Achievement</span>
+                </div>
+                <div class="leaderboard-list" id="leaderboardList">
+                    <!-- Leaderboard entries will be populated here -->
+                </div>
+            </div>
+            <button class="btn btn--secondary" id="backFromLeaderboard">Return to Menu</button>
+        </div>
+
+        <div class="instructions-screen hidden" id="instructionsScreen">
+            <h2 class="instructions-title">Quest Instructions</h2>
+            <div class="instructions-content">
+                <div class="instruction-item">
+                    <div class="instruction-icon gem-icon"></div>
+                    <p>Catch the sparkling mystical gems to earn points and build your combo multiplier</p>
+                </div>
+                <div class="instruction-item">
+                    <div class="instruction-icon rock-icon"></div>
+                    <p>Avoid the cursed dark rocks - they will break your combo and reduce your score</p>
+                </div>
+                <div class="instruction-item">
+                    <div class="instruction-icon basket-icon"></div>
+                    <p>Use arrow keys (desktop) or touch controls (mobile) to move your golden basket</p>
+                </div>
+                <div class="instruction-item">
+                    <div class="instruction-icon timer-icon"></div>
+                    <p>Survive for 60 seconds to complete your quest and earn a place in the Hall of Fame</p>
+                </div>
+            </div>
+            <button class="btn btn--primary" id="backFromInstructions">Begin Your Quest</button>
+        </div>
+
+        <div class="game-over-screen hidden" id="gameOverScreen">
+            <div class="game-over-content">
+                <h2 class="game-over-title">Quest Complete!</h2>
+                <div class="final-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Final Score</span>
+                        <span class="stat-value" id="finalScore">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Best Combo</span>
+                        <span class="stat-value" id="bestCombo">x1</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Rank</span>
+                        <span class="stat-value" id="playerRank">-</span>
+                    </div>
+                </div>
+                <div class="achievement-message" id="achievementMessage"></div>
+                <div class="game-over-buttons">
+                    <button class="btn btn--primary" id="playAgainBtn">Quest Again</button>
+                    <button class="btn btn--secondary" id="viewLeaderboardBtn">Hall of Fame</button>
+                    <button class="btn btn--outline" id="backToMenuBtn">Return to Menu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
